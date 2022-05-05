@@ -2,3 +2,7 @@
 	path = cosmos-sdk
 	url = https://github.com/cosmos/cosmos-sdk.git
 	branch = v0.42.4
+	shallow = true
+	update = none
+	ignore = all
+
