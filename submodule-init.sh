@@ -15,3 +15,5 @@ for SUBMODULE in ${SUBMODULES}; do
     git -C ${SUBMODULE_PATH} config core.sparseCheckout true
     git -C ${SUBMODULE_PATH} sparse-checkout set ${SUBMODULE_DIR[*]}
 done
+
+git submodule init
