@@ -14,6 +14,7 @@ jobs:
           node-version: 16
       - uses: arduino/setup-protoc@v1
       - run: ./submodule-init.sh
+      - run: git submodule update --force
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: yarn test
