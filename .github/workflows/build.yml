@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - uses: arduino/setup-protoc@v1.1.0
+      - uses: arduino/setup-protoc@v1
       - run: ./submodule-init.sh
       - run: yarn install --frozen-lockfile
       - run: yarn build
