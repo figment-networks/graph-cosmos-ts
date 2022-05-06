@@ -1,8 +1,15 @@
 [submodule "cosmos-sdk"]
 	path = cosmos-sdk
 	url = https://github.com/cosmos/cosmos-sdk.git
-	branch = v0.42.4
+	branch = v0.45.1
 	shallow = true
-	update = none
 	ignore = all
+	dir = proto third_party/proto
 
+[submodule "ibc-go"]
+	path = ibc-go
+	url = https://github.com/cosmos/ibc-go.git
+	branch = v3.0.0
+	shallow = true
+	ignore = all
+	dir = proto third_party/proto
