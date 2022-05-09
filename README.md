@@ -1,6 +1,6 @@
 # graph-cosmos-ts
 
-This modules contains the typescript/assemblyscript binding for cosmos protobuf
+This modules contains the TypeScript/AssemblyScript binding for osmosis protobuf
 
 ## Development
 
