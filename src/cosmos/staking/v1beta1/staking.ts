@@ -993,6 +993,9 @@ export class Params {
 
     writer.uint32(42);
     writer.string(message.bond_denom);
+
+    writer.uint32(50);
+    writer.string(message.min_commission_rate);
   }
 
   static decode(reader: Reader, length: i32): Params {
@@ -1022,6 +1025,10 @@ export class Params {
           message.bond_denom = reader.string();
           break;
 
+        case 6:
+          message.min_commission_rate = reader.string();
+          break;
+
         default:
           reader.skipType(tag & 7);
           break;
@@ -1036,19 +1043,22 @@ export class Params {
   max_entries: u32;
   historical_entries: u32;
   bond_denom: string;
+  min_commission_rate: string;
 
   constructor(
     unbonding_time: google.protobuf.Duration | null = null,
     max_validators: u32 = 0,
     max_entries: u32 = 0,
     historical_entries: u32 = 0,
-    bond_denom: string = ""
+    bond_denom: string = "",
+    min_commission_rate: string = ""
   ) {
     this.unbonding_time = unbonding_time;
     this.max_validators = max_validators;
     this.max_entries = max_entries;
     this.historical_entries = historical_entries;
     this.bond_denom = bond_denom;
+    this.min_commission_rate = min_commission_rate;
   }
 }
 

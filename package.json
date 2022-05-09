@@ -1,6 +1,6 @@
 {
-  "name": "@graphprotocol/cosmos-ts",
-  "version": "0.1.0-alpha.0",
+  "name": "@graphprotocol/osmosis-ts",
+  "version":"0.1.0-alpha.0",
   "license": "MIT",
   "module": "src/index.ts",
   "types": "src/index.ts",
@@ -8,7 +8,12 @@
   "ascMain": "src/index.ts",
   "scripts": {
     "prebuild": "cd ./node_modules/as-proto-gen && yarn build --scope as-proto-gen",
-    "build": "protoc --plugin=protoc-gen-as=./node_modules/as-proto-gen/packages/as-proto-gen/bin/as-proto-gen --proto_path=./third_party/ --as_out=./src $(./proto-file-list.sh)",
+    "build-cosmos": "protoc @cosmos-option.txt --as_out=./src $(./cosmos-file-list.sh)",
+    "build-ibc": "protoc @ibc-option.txt --as_out=./src $(./ibc-file-list.sh)",
+    "postbuild-ibc": "sed -i -e 's[../../../../proofs[../../../../confio[' src/ibc/core/commitment/v1/commitment.ts",
+    "prebuild-osmosis": "sed -i -e 's/^package osmosis.gamm.v1beta1;$/package osmosis.gamm.balancer.v1beta1;/' osmosis/proto/osmosis/gamm/pool-models/balancer/*.proto",
+    "build-osmosis": "protoc @osmosis-option.txt --as_out=./src $(./osmosis-file-list.sh)",
+    "build": "yarn build-cosmos && yarn build-ibc && yarn build-osmosis",
     "test": "asc --explicitStart --exportRuntime --runtime stub src/index.ts --lib graph-cosmos-ts -b index.wasm"
   },
   "dependencies": {

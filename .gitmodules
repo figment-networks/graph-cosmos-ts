@@ -1,0 +1,23 @@
+[submodule "cosmos-sdk"]
+	path = cosmos-sdk
+	url = https://github.com/osmosis-labs/cosmos-sdk.git
+	branch = v0.45.0x-osmo-v7.9
+	shallow = true
+	ignore = all
+	dir = proto third_party/proto
+
+[submodule "ibc-go"]
+	path = ibc-go
+	url = https://github.com/osmosis-labs/ibc-go.git
+	branch = v2.0.2-osmo
+	shallow = true
+	ignore = all
+	dir = proto third_party/proto
+
+[submodule "osmosis"]
+	path = osmosis
+	url = https://github.com/osmosis-labs/osmosis.git
+	branch = v7.3.0
+	shallow = true
+	ignore = all
+	dir = proto
