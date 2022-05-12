@@ -7,11 +7,10 @@
   "main": "src/index.ts",
   "ascMain": "src/index.ts",
   "scripts": {
-    "prebuild": "cd ./node_modules/as-proto-gen && yarn build --scope as-proto-gen",
-    "build-cosmos": "protoc @cosmos-option.txt --as_out=./src $(./cosmos-file-list.sh)",
-    "build-ibc": "protoc @ibc-option.txt --as_out=./src $(./ibc-file-list.sh)",
-    "postbuild-ibc": "sed -i -e 's[../../../../proofs[../../../../confio[' src/ibc/core/commitment/v1/commitment.ts",
-    "build": "yarn build-cosmos && yarn build-ibc",
+    "prebuild": "cd ./node_modules/as-proto-gen/packages/as-proto-gen/ && yarn build",
+    "prebuild-ts": "sed -i -e 's[import \"proofs.proto\"[import \"confio/proofs.proto\"[' ibc-go/proto/ibc/core/commitment/v1/commitment.proto",
+    "build-ts": "protoc @protoc-option.txt --as_out=./src $(./protoc-file-list.sh)",
+    "build": "yarn build-ts",
     "test": "asc --explicitStart --exportRuntime --runtime stub src/index.ts --lib graph-cosmos-ts -b index.wasm"
   },
   "dependencies": {
