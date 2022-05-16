@@ -15,6 +15,7 @@ git submodule update --init --force
 ### Build and test
 
 ```bash
+yarn
 yarn build
 yarn test
 ```
