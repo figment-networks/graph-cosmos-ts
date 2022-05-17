@@ -8,5 +8,4 @@ export * from "./feegrant";
 export * from "./gov";
 export * from "./slashing";
 export * from "./staking";
-export * from "./upgrade";
 export * from "./vesting";

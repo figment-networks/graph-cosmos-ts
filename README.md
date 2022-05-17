@@ -9,13 +9,13 @@ Install protoc: `https://github.com/protocolbuffers/protobuf/releases`
 ### Get proto-file
 
 ```bash
-./submodule-init.sh
-git submodule update --force
+git submodule update --init --force
 ```
 
 ### Build and test
 
 ```bash
+yarn install --frozen-lockfile
 yarn build
 yarn test
 ```
