@@ -9,19 +9,19 @@ export class Channel {
     writer.uint32(16);
     writer.int32(message.ordering);
 
-    const counterparty = message.counterparty;
-    if (counterparty !== null) {
+    const counterparty_ = message.counterparty;
+    if (counterparty_ !== null) {
       writer.uint32(26);
       writer.fork();
-      Counterparty.encode(counterparty, writer);
+      Counterparty.encode(counterparty_, writer);
       writer.ldelim();
     }
 
-    const connection_hops = message.connection_hops;
-    if (connection_hops.length !== 0) {
-      for (let i = 0; i < connection_hops.length; ++i) {
+    const connection_hops_ = message.connection_hops;
+    if (connection_hops_.length !== 0) {
+      for (let i = 0; i < connection_hops_.length; ++i) {
         writer.uint32(34);
-        writer.string(connection_hops[i]);
+        writer.string(connection_hops_[i]);
       }
     }
 
@@ -98,19 +98,19 @@ export class IdentifiedChannel {
     writer.uint32(16);
     writer.int32(message.ordering);
 
-    const counterparty = message.counterparty;
-    if (counterparty !== null) {
+    const counterparty_ = message.counterparty;
+    if (counterparty_ !== null) {
       writer.uint32(26);
       writer.fork();
-      Counterparty.encode(counterparty, writer);
+      Counterparty.encode(counterparty_, writer);
       writer.ldelim();
     }
 
-    const connection_hops = message.connection_hops;
-    if (connection_hops.length !== 0) {
-      for (let i = 0; i < connection_hops.length; ++i) {
+    const connection_hops_ = message.connection_hops;
+    if (connection_hops_.length !== 0) {
+      for (let i = 0; i < connection_hops_.length; ++i) {
         writer.uint32(34);
-        writer.string(connection_hops[i]);
+        writer.string(connection_hops_[i]);
       }
     }
 
@@ -265,11 +265,11 @@ export class Packet {
     writer.uint32(50);
     writer.bytes(message.data);
 
-    const timeout_height = message.timeout_height;
-    if (timeout_height !== null) {
+    const timeout_height_ = message.timeout_height;
+    if (timeout_height_ !== null) {
       writer.uint32(58);
       writer.fork();
-      client.v1.Height.encode(timeout_height, writer);
+      client.v1.Height.encode(timeout_height_, writer);
       writer.ldelim();
     }
 

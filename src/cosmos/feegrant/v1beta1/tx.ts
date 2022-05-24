@@ -9,11 +9,11 @@ export class MsgGrantAllowance {
     writer.uint32(18);
     writer.string(message.grantee);
 
-    const allowance = message.allowance;
-    if (allowance !== null) {
+    const allowance_ = message.allowance;
+    if (allowance_ !== null) {
       writer.uint32(26);
       writer.fork();
-      google.protobuf.Any.encode(allowance, writer);
+      google.protobuf.Any.encode(allowance_, writer);
       writer.ldelim();
     }
   }

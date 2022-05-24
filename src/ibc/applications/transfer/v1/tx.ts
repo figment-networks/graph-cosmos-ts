@@ -10,11 +10,11 @@ export class MsgTransfer {
     writer.uint32(18);
     writer.string(message.source_channel);
 
-    const token = message.token;
-    if (token !== null) {
+    const token_ = message.token;
+    if (token_ !== null) {
       writer.uint32(26);
       writer.fork();
-      cosmos.base.v1beta1.Coin.encode(token, writer);
+      cosmos.base.v1beta1.Coin.encode(token_, writer);
       writer.ldelim();
     }
 
@@ -24,11 +24,11 @@ export class MsgTransfer {
     writer.uint32(42);
     writer.string(message.receiver);
 
-    const timeout_height = message.timeout_height;
-    if (timeout_height !== null) {
+    const timeout_height_ = message.timeout_height;
+    if (timeout_height_ !== null) {
       writer.uint32(50);
       writer.fork();
-      core.client.v1.Height.encode(timeout_height, writer);
+      core.client.v1.Height.encode(timeout_height_, writer);
       writer.ldelim();
     }
 

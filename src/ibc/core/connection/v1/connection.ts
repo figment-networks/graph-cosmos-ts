@@ -6,22 +6,22 @@ export class ConnectionEnd {
     writer.uint32(10);
     writer.string(message.client_id);
 
-    const versions = message.versions;
-    for (let i = 0; i < versions.length; ++i) {
+    const versions_ = message.versions;
+    for (let i = 0; i < versions_.length; ++i) {
       writer.uint32(18);
       writer.fork();
-      Version.encode(versions[i], writer);
+      Version.encode(versions_[i], writer);
       writer.ldelim();
     }
 
     writer.uint32(24);
     writer.int32(message.state);
 
-    const counterparty = message.counterparty;
-    if (counterparty !== null) {
+    const counterparty_ = message.counterparty;
+    if (counterparty_ !== null) {
       writer.uint32(34);
       writer.fork();
-      Counterparty.encode(counterparty, writer);
+      Counterparty.encode(counterparty_, writer);
       writer.ldelim();
     }
 
@@ -98,22 +98,22 @@ export class IdentifiedConnection {
     writer.uint32(18);
     writer.string(message.client_id);
 
-    const versions = message.versions;
-    for (let i = 0; i < versions.length; ++i) {
+    const versions_ = message.versions;
+    for (let i = 0; i < versions_.length; ++i) {
       writer.uint32(26);
       writer.fork();
-      Version.encode(versions[i], writer);
+      Version.encode(versions_[i], writer);
       writer.ldelim();
     }
 
     writer.uint32(32);
     writer.int32(message.state);
 
-    const counterparty = message.counterparty;
-    if (counterparty !== null) {
+    const counterparty_ = message.counterparty;
+    if (counterparty_ !== null) {
       writer.uint32(42);
       writer.fork();
-      Counterparty.encode(counterparty, writer);
+      Counterparty.encode(counterparty_, writer);
       writer.ldelim();
     }
 
@@ -197,11 +197,11 @@ export class Counterparty {
     writer.uint32(18);
     writer.string(message.connection_id);
 
-    const prefix = message.prefix;
-    if (prefix !== null) {
+    const prefix_ = message.prefix;
+    if (prefix_ !== null) {
       writer.uint32(26);
       writer.fork();
-      commitment.v1.MerklePrefix.encode(prefix, writer);
+      commitment.v1.MerklePrefix.encode(prefix_, writer);
       writer.ldelim();
     }
   }
@@ -251,11 +251,11 @@ export function decodeCounterparty(a: Uint8Array): Counterparty {
 
 export class ClientPaths {
   static encode(message: ClientPaths, writer: Writer): void {
-    const paths = message.paths;
-    if (paths.length !== 0) {
-      for (let i = 0; i < paths.length; ++i) {
+    const paths_ = message.paths;
+    if (paths_.length !== 0) {
+      for (let i = 0; i < paths_.length; ++i) {
         writer.uint32(10);
-        writer.string(paths[i]);
+        writer.string(paths_[i]);
       }
     }
   }
@@ -296,11 +296,11 @@ export class ConnectionPaths {
     writer.uint32(10);
     writer.string(message.client_id);
 
-    const paths = message.paths;
-    if (paths.length !== 0) {
-      for (let i = 0; i < paths.length; ++i) {
+    const paths_ = message.paths;
+    if (paths_.length !== 0) {
+      for (let i = 0; i < paths_.length; ++i) {
         writer.uint32(18);
-        writer.string(paths[i]);
+        writer.string(paths_[i]);
       }
     }
   }
@@ -347,11 +347,11 @@ export class Version {
     writer.uint32(10);
     writer.string(message.identifier);
 
-    const features = message.features;
-    if (features.length !== 0) {
-      for (let i = 0; i < features.length; ++i) {
+    const features_ = message.features;
+    if (features_.length !== 0) {
+      for (let i = 0; i < features_.length; ++i) {
         writer.uint32(18);
-        writer.string(features[i]);
+        writer.string(features_[i]);
       }
     }
   }

@@ -10,11 +10,11 @@ export class MsgGrant {
     writer.uint32(18);
     writer.string(message.grantee);
 
-    const grant = message.grant;
-    if (grant !== null) {
+    const grant_ = message.grant;
+    if (grant_ !== null) {
       writer.uint32(26);
       writer.fork();
-      Grant.encode(grant, writer);
+      Grant.encode(grant_, writer);
       writer.ldelim();
     }
   }
@@ -64,11 +64,11 @@ export function decodeMsgGrant(a: Uint8Array): MsgGrant {
 
 export class MsgExecResponse {
   static encode(message: MsgExecResponse, writer: Writer): void {
-    const results = message.results;
-    if (results.length !== 0) {
-      for (let i = 0; i < results.length; ++i) {
+    const results_ = message.results;
+    if (results_.length !== 0) {
+      for (let i = 0; i < results_.length; ++i) {
         writer.uint32(10);
-        writer.bytes(results[i]);
+        writer.bytes(results_[i]);
       }
     }
   }
@@ -109,11 +109,11 @@ export class MsgExec {
     writer.uint32(10);
     writer.string(message.grantee);
 
-    const msgs = message.msgs;
-    for (let i = 0; i < msgs.length; ++i) {
+    const msgs_ = message.msgs;
+    for (let i = 0; i < msgs_.length; ++i) {
       writer.uint32(18);
       writer.fork();
-      google.protobuf.Any.encode(msgs[i], writer);
+      google.protobuf.Any.encode(msgs_[i], writer);
       writer.ldelim();
     }
   }

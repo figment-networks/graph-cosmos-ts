@@ -1,2 +1,2 @@
-export * from "./api";
-export * from "./protobuf";
+export { api } from "./api";
+export { protobuf } from "./protobuf";

@@ -8,9 +8,12 @@ ls -1 $(grep -slR 'message Msg' ./cosmos-sdk/proto | egrep '\.proto$') \
     ./cosmos-sdk/proto/cosmos/base/v1beta1/coin.proto \
     ./cosmos-sdk/proto/cosmos/gov/v1beta1/gov.proto \
     ./cosmos-sdk/proto/cosmos/staking/v1beta1/staking.proto \
+    ./cosmos-sdk/proto/cosmos/upgrade/v1beta1/upgrade.proto \
     ./cosmos-sdk/third_party/proto/confio/proofs.proto \
     ./ibc-go/proto/ibc/core/client/v1/client.proto \
     ./ibc-go/proto/ibc/core/channel/v1/channel.proto \
     ./ibc-go/proto/ibc/core/connection/v1/connection.proto \
     ./ibc-go/proto/ibc/core/commitment/v1/commitment.proto \
+    ./third_party/google/protobuf/duration.proto \
+    ./third_party/google/protobuf/timestamp.proto \
     | sort | uniq

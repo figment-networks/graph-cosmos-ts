@@ -11,11 +11,11 @@ export class Proof {
     writer.uint32(26);
     writer.bytes(message.leaf_hash);
 
-    const aunts = message.aunts;
-    if (aunts.length !== 0) {
-      for (let i = 0; i < aunts.length; ++i) {
+    const aunts_ = message.aunts;
+    if (aunts_.length !== 0) {
+      for (let i = 0; i < aunts_.length; ++i) {
         writer.uint32(34);
-        writer.bytes(aunts[i]);
+        writer.bytes(aunts_[i]);
       }
     }
   }
@@ -74,11 +74,11 @@ export class ValueOp {
     writer.uint32(10);
     writer.bytes(message.key);
 
-    const proof = message.proof;
-    if (proof !== null) {
+    const proof_ = message.proof;
+    if (proof_ !== null) {
       writer.uint32(18);
       writer.fork();
-      Proof.encode(proof, writer);
+      Proof.encode(proof_, writer);
       writer.ldelim();
     }
   }
@@ -232,11 +232,11 @@ export function decodeProofOp(a: Uint8Array): ProofOp {
 
 export class ProofOps {
   static encode(message: ProofOps, writer: Writer): void {
-    const ops = message.ops;
-    for (let i = 0; i < ops.length; ++i) {
+    const ops_ = message.ops;
+    for (let i = 0; i < ops_.length; ++i) {
       writer.uint32(10);
       writer.fork();
-      ProofOp.encode(ops[i], writer);
+      ProofOp.encode(ops_[i], writer);
       writer.ldelim();
     }
   }

@@ -9,11 +9,11 @@ export class HttpBody {
     writer.uint32(18);
     writer.bytes(message.data);
 
-    const extensions = message.extensions;
-    for (let i = 0; i < extensions.length; ++i) {
+    const extensions_ = message.extensions;
+    for (let i = 0; i < extensions_.length; ++i) {
       writer.uint32(26);
       writer.fork();
-      protobuf.Any.encode(extensions[i], writer);
+      protobuf.Any.encode(extensions_[i], writer);
       writer.ldelim();
     }
   }

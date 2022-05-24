@@ -10,11 +10,11 @@ export class MsgSend {
     writer.uint32(18);
     writer.string(message.to_address);
 
-    const amount = message.amount;
-    for (let i = 0; i < amount.length; ++i) {
+    const amount_ = message.amount;
+    for (let i = 0; i < amount_.length; ++i) {
       writer.uint32(26);
       writer.fork();
-      base.v1beta1.Coin.encode(amount[i], writer);
+      base.v1beta1.Coin.encode(amount_[i], writer);
       writer.ldelim();
     }
   }
@@ -91,19 +91,19 @@ export function decodeMsgSendResponse(a: Uint8Array): MsgSendResponse {
 
 export class MsgMultiSend {
   static encode(message: MsgMultiSend, writer: Writer): void {
-    const inputs = message.inputs;
-    for (let i = 0; i < inputs.length; ++i) {
+    const inputs_ = message.inputs;
+    for (let i = 0; i < inputs_.length; ++i) {
       writer.uint32(10);
       writer.fork();
-      Input.encode(inputs[i], writer);
+      Input.encode(inputs_[i], writer);
       writer.ldelim();
     }
 
-    const outputs = message.outputs;
-    for (let i = 0; i < outputs.length; ++i) {
+    const outputs_ = message.outputs;
+    for (let i = 0; i < outputs_.length; ++i) {
       writer.uint32(18);
       writer.fork();
-      Output.encode(outputs[i], writer);
+      Output.encode(outputs_[i], writer);
       writer.ldelim();
     }
   }

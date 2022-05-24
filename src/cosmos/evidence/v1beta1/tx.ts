@@ -6,11 +6,11 @@ export class MsgSubmitEvidence {
     writer.uint32(10);
     writer.string(message.submitter);
 
-    const evidence = message.evidence;
-    if (evidence !== null) {
+    const evidence_ = message.evidence;
+    if (evidence_ !== null) {
       writer.uint32(18);
       writer.fork();
-      google.protobuf.Any.encode(evidence, writer);
+      google.protobuf.Any.encode(evidence_, writer);
       writer.ldelim();
     }
   }

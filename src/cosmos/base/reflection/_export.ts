@@ -1,1 +1,1 @@
-export * from "./v2alpha1";
+export { v2alpha1 } from "./v2alpha1";

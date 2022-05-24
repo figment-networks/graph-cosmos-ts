@@ -5,19 +5,19 @@ import { VoteOption, WeightedVoteOption } from "./gov";
 
 export class MsgSubmitProposal {
   static encode(message: MsgSubmitProposal, writer: Writer): void {
-    const content = message.content;
-    if (content !== null) {
+    const content_ = message.content;
+    if (content_ !== null) {
       writer.uint32(10);
       writer.fork();
-      google.protobuf.Any.encode(content, writer);
+      google.protobuf.Any.encode(content_, writer);
       writer.ldelim();
     }
 
-    const initial_deposit = message.initial_deposit;
-    for (let i = 0; i < initial_deposit.length; ++i) {
+    const initial_deposit_ = message.initial_deposit;
+    for (let i = 0; i < initial_deposit_.length; ++i) {
       writer.uint32(18);
       writer.fork();
-      base.v1beta1.Coin.encode(initial_deposit[i], writer);
+      base.v1beta1.Coin.encode(initial_deposit_[i], writer);
       writer.ldelim();
     }
 
@@ -196,11 +196,11 @@ export class MsgVoteWeighted {
     writer.uint32(18);
     writer.string(message.voter);
 
-    const options = message.options;
-    for (let i = 0; i < options.length; ++i) {
+    const options_ = message.options;
+    for (let i = 0; i < options_.length; ++i) {
       writer.uint32(26);
       writer.fork();
-      WeightedVoteOption.encode(options[i], writer);
+      WeightedVoteOption.encode(options_[i], writer);
       writer.ldelim();
     }
   }
@@ -283,11 +283,11 @@ export class MsgDeposit {
     writer.uint32(18);
     writer.string(message.depositor);
 
-    const amount = message.amount;
-    for (let i = 0; i < amount.length; ++i) {
+    const amount_ = message.amount;
+    for (let i = 0; i < amount_.length; ++i) {
       writer.uint32(26);
       writer.fork();
-      base.v1beta1.Coin.encode(amount[i], writer);
+      base.v1beta1.Coin.encode(amount_[i], writer);
       writer.ldelim();
     }
   }

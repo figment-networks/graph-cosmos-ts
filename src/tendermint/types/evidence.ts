@@ -5,19 +5,19 @@ import { Validator } from "./validator";
 
 export class Evidence {
   static encode(message: Evidence, writer: Writer): void {
-    const duplicate_vote_evidence = message.duplicate_vote_evidence;
-    if (duplicate_vote_evidence !== null) {
+    const duplicate_vote_evidence_ = message.duplicate_vote_evidence;
+    if (duplicate_vote_evidence_ !== null) {
       writer.uint32(10);
       writer.fork();
-      DuplicateVoteEvidence.encode(duplicate_vote_evidence, writer);
+      DuplicateVoteEvidence.encode(duplicate_vote_evidence_, writer);
       writer.ldelim();
     }
 
-    const light_client_attack_evidence = message.light_client_attack_evidence;
-    if (light_client_attack_evidence !== null) {
+    const light_client_attack_evidence_ = message.light_client_attack_evidence;
+    if (light_client_attack_evidence_ !== null) {
       writer.uint32(18);
       writer.fork();
-      LightClientAttackEvidence.encode(light_client_attack_evidence, writer);
+      LightClientAttackEvidence.encode(light_client_attack_evidence_, writer);
       writer.ldelim();
     }
   }
@@ -64,19 +64,19 @@ export function decodeEvidence(a: Uint8Array): Evidence {
 
 export class DuplicateVoteEvidence {
   static encode(message: DuplicateVoteEvidence, writer: Writer): void {
-    const vote_a = message.vote_a;
-    if (vote_a !== null) {
+    const vote_a_ = message.vote_a;
+    if (vote_a_ !== null) {
       writer.uint32(10);
       writer.fork();
-      Vote.encode(vote_a, writer);
+      Vote.encode(vote_a_, writer);
       writer.ldelim();
     }
 
-    const vote_b = message.vote_b;
-    if (vote_b !== null) {
+    const vote_b_ = message.vote_b;
+    if (vote_b_ !== null) {
       writer.uint32(18);
       writer.fork();
-      Vote.encode(vote_b, writer);
+      Vote.encode(vote_b_, writer);
       writer.ldelim();
     }
 
@@ -86,11 +86,11 @@ export class DuplicateVoteEvidence {
     writer.uint32(32);
     writer.int64(message.validator_power);
 
-    const timestamp = message.timestamp;
-    if (timestamp !== null) {
+    const timestamp_ = message.timestamp;
+    if (timestamp_ !== null) {
       writer.uint32(42);
       writer.fork();
-      google.protobuf.Timestamp.encode(timestamp, writer);
+      google.protobuf.Timestamp.encode(timestamp_, writer);
       writer.ldelim();
     }
   }
@@ -158,33 +158,33 @@ export function decodeDuplicateVoteEvidence(a: Uint8Array): DuplicateVoteEvidenc
 
 export class LightClientAttackEvidence {
   static encode(message: LightClientAttackEvidence, writer: Writer): void {
-    const conflicting_block = message.conflicting_block;
-    if (conflicting_block !== null) {
+    const conflicting_block_ = message.conflicting_block;
+    if (conflicting_block_ !== null) {
       writer.uint32(10);
       writer.fork();
-      LightBlock.encode(conflicting_block, writer);
+      LightBlock.encode(conflicting_block_, writer);
       writer.ldelim();
     }
 
     writer.uint32(16);
     writer.int64(message.common_height);
 
-    const byzantine_validators = message.byzantine_validators;
-    for (let i = 0; i < byzantine_validators.length; ++i) {
+    const byzantine_validators_ = message.byzantine_validators;
+    for (let i = 0; i < byzantine_validators_.length; ++i) {
       writer.uint32(26);
       writer.fork();
-      Validator.encode(byzantine_validators[i], writer);
+      Validator.encode(byzantine_validators_[i], writer);
       writer.ldelim();
     }
 
     writer.uint32(32);
     writer.int64(message.total_voting_power);
 
-    const timestamp = message.timestamp;
-    if (timestamp !== null) {
+    const timestamp_ = message.timestamp;
+    if (timestamp_ !== null) {
       writer.uint32(42);
       writer.fork();
-      google.protobuf.Timestamp.encode(timestamp, writer);
+      google.protobuf.Timestamp.encode(timestamp_, writer);
       writer.ldelim();
     }
   }
@@ -252,11 +252,11 @@ export function decodeLightClientAttackEvidence(a: Uint8Array): LightClientAttac
 
 export class EvidenceList {
   static encode(message: EvidenceList, writer: Writer): void {
-    const evidence = message.evidence;
-    for (let i = 0; i < evidence.length; ++i) {
+    const evidence_ = message.evidence;
+    for (let i = 0; i < evidence_.length; ++i) {
       writer.uint32(10);
       writer.fork();
-      Evidence.encode(evidence[i], writer);
+      Evidence.encode(evidence_[i], writer);
       writer.ldelim();
     }
   }

@@ -8,19 +8,19 @@ export class MsgConnectionOpenInit {
     writer.uint32(10);
     writer.string(message.client_id);
 
-    const counterparty = message.counterparty;
-    if (counterparty !== null) {
+    const counterparty_ = message.counterparty;
+    if (counterparty_ !== null) {
       writer.uint32(18);
       writer.fork();
-      Counterparty.encode(counterparty, writer);
+      Counterparty.encode(counterparty_, writer);
       writer.ldelim();
     }
 
-    const version = message.version;
-    if (version !== null) {
+    const version_ = message.version;
+    if (version_ !== null) {
       writer.uint32(26);
       writer.fork();
-      Version.encode(version, writer);
+      Version.encode(version_, writer);
       writer.ldelim();
     }
 
@@ -127,38 +127,38 @@ export class MsgConnectionOpenTry {
     writer.uint32(18);
     writer.string(message.previous_connection_id);
 
-    const client_state = message.client_state;
-    if (client_state !== null) {
+    const client_state_ = message.client_state;
+    if (client_state_ !== null) {
       writer.uint32(26);
       writer.fork();
-      google.protobuf.Any.encode(client_state, writer);
+      google.protobuf.Any.encode(client_state_, writer);
       writer.ldelim();
     }
 
-    const counterparty = message.counterparty;
-    if (counterparty !== null) {
+    const counterparty_ = message.counterparty;
+    if (counterparty_ !== null) {
       writer.uint32(34);
       writer.fork();
-      Counterparty.encode(counterparty, writer);
+      Counterparty.encode(counterparty_, writer);
       writer.ldelim();
     }
 
     writer.uint32(40);
     writer.uint64(message.delay_period);
 
-    const counterparty_versions = message.counterparty_versions;
-    for (let i = 0; i < counterparty_versions.length; ++i) {
+    const counterparty_versions_ = message.counterparty_versions;
+    for (let i = 0; i < counterparty_versions_.length; ++i) {
       writer.uint32(50);
       writer.fork();
-      Version.encode(counterparty_versions[i], writer);
+      Version.encode(counterparty_versions_[i], writer);
       writer.ldelim();
     }
 
-    const proof_height = message.proof_height;
-    if (proof_height !== null) {
+    const proof_height_ = message.proof_height;
+    if (proof_height_ !== null) {
       writer.uint32(58);
       writer.fork();
-      client.v1.Height.encode(proof_height, writer);
+      client.v1.Height.encode(proof_height_, writer);
       writer.ldelim();
     }
 
@@ -171,11 +171,11 @@ export class MsgConnectionOpenTry {
     writer.uint32(82);
     writer.bytes(message.proof_consensus);
 
-    const consensus_height = message.consensus_height;
-    if (consensus_height !== null) {
+    const consensus_height_ = message.consensus_height;
+    if (consensus_height_ !== null) {
       writer.uint32(90);
       writer.fork();
-      client.v1.Height.encode(consensus_height, writer);
+      client.v1.Height.encode(consensus_height_, writer);
       writer.ldelim();
     }
 
@@ -328,27 +328,27 @@ export class MsgConnectionOpenAck {
     writer.uint32(18);
     writer.string(message.counterparty_connection_id);
 
-    const version = message.version;
-    if (version !== null) {
+    const version_ = message.version;
+    if (version_ !== null) {
       writer.uint32(26);
       writer.fork();
-      Version.encode(version, writer);
+      Version.encode(version_, writer);
       writer.ldelim();
     }
 
-    const client_state = message.client_state;
-    if (client_state !== null) {
+    const client_state_ = message.client_state;
+    if (client_state_ !== null) {
       writer.uint32(34);
       writer.fork();
-      google.protobuf.Any.encode(client_state, writer);
+      google.protobuf.Any.encode(client_state_, writer);
       writer.ldelim();
     }
 
-    const proof_height = message.proof_height;
-    if (proof_height !== null) {
+    const proof_height_ = message.proof_height;
+    if (proof_height_ !== null) {
       writer.uint32(42);
       writer.fork();
-      client.v1.Height.encode(proof_height, writer);
+      client.v1.Height.encode(proof_height_, writer);
       writer.ldelim();
     }
 
@@ -361,11 +361,11 @@ export class MsgConnectionOpenAck {
     writer.uint32(66);
     writer.bytes(message.proof_consensus);
 
-    const consensus_height = message.consensus_height;
-    if (consensus_height !== null) {
+    const consensus_height_ = message.consensus_height;
+    if (consensus_height_ !== null) {
       writer.uint32(74);
       writer.fork();
-      client.v1.Height.encode(consensus_height, writer);
+      client.v1.Height.encode(consensus_height_, writer);
       writer.ldelim();
     }
 
@@ -504,11 +504,11 @@ export class MsgConnectionOpenConfirm {
     writer.uint32(18);
     writer.bytes(message.proof_ack);
 
-    const proof_height = message.proof_height;
-    if (proof_height !== null) {
+    const proof_height_ = message.proof_height;
+    if (proof_height_ !== null) {
       writer.uint32(26);
       writer.fork();
-      client.v1.Height.encode(proof_height, writer);
+      client.v1.Height.encode(proof_height_, writer);
       writer.ldelim();
     }
 

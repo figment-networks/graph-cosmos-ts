@@ -9,11 +9,11 @@ export class MsgCreateVestingAccount {
     writer.uint32(18);
     writer.string(message.to_address);
 
-    const amount = message.amount;
-    for (let i = 0; i < amount.length; ++i) {
+    const amount_ = message.amount;
+    for (let i = 0; i < amount_.length; ++i) {
       writer.uint32(26);
       writer.fork();
-      base.v1beta1.Coin.encode(amount[i], writer);
+      base.v1beta1.Coin.encode(amount_[i], writer);
       writer.ldelim();
     }
 

@@ -213,11 +213,11 @@ export function decodeMsgWithdrawValidatorCommissionResponse(a: Uint8Array): Msg
 
 export class MsgFundCommunityPool {
   static encode(message: MsgFundCommunityPool, writer: Writer): void {
-    const amount = message.amount;
-    for (let i = 0; i < amount.length; ++i) {
+    const amount_ = message.amount;
+    for (let i = 0; i < amount_.length; ++i) {
       writer.uint32(10);
       writer.fork();
-      base.v1beta1.Coin.encode(amount[i], writer);
+      base.v1beta1.Coin.encode(amount_[i], writer);
       writer.ldelim();
     }
 

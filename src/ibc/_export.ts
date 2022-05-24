@@ -1,2 +1,2 @@
-export * from "./applications";
-export * from "./core";
+export { applications } from "./applications";
+export { core } from "./core";

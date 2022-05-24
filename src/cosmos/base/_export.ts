@@ -1,3 +1,3 @@
-export * from "./abci";
-export * from "./reflection";
-export * from "./v1beta1";
+export { abci } from "./abci";
+export { reflection } from "./reflection";
+export { v1beta1 } from "./v1beta1";

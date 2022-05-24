@@ -77,11 +77,11 @@ export function decodeMerklePrefix(a: Uint8Array): MerklePrefix {
 
 export class MerklePath {
   static encode(message: MerklePath, writer: Writer): void {
-    const key_path = message.key_path;
-    if (key_path.length !== 0) {
-      for (let i = 0; i < key_path.length; ++i) {
+    const key_path_ = message.key_path;
+    if (key_path_.length !== 0) {
+      for (let i = 0; i < key_path_.length; ++i) {
         writer.uint32(10);
-        writer.string(key_path[i]);
+        writer.string(key_path_[i]);
       }
     }
   }
@@ -119,11 +119,11 @@ export function decodeMerklePath(a: Uint8Array): MerklePath {
 
 export class MerkleProof {
   static encode(message: MerkleProof, writer: Writer): void {
-    const proofs = message.proofs;
-    for (let i = 0; i < proofs.length; ++i) {
+    const proofs_ = message.proofs;
+    for (let i = 0; i < proofs_.length; ++i) {
       writer.uint32(10);
       writer.fork();
-      ics23.CommitmentProof.encode(proofs[i], writer);
+      ics23.CommitmentProof.encode(proofs_[i], writer);
       writer.ldelim();
     }
   }

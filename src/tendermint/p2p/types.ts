@@ -113,11 +113,11 @@ export function decodeProtocolVersion(a: Uint8Array): ProtocolVersion {
 
 export class DefaultNodeInfo {
   static encode(message: DefaultNodeInfo, writer: Writer): void {
-    const protocol_version = message.protocol_version;
-    if (protocol_version !== null) {
+    const protocol_version_ = message.protocol_version;
+    if (protocol_version_ !== null) {
       writer.uint32(10);
       writer.fork();
-      ProtocolVersion.encode(protocol_version, writer);
+      ProtocolVersion.encode(protocol_version_, writer);
       writer.ldelim();
     }
 
@@ -139,11 +139,11 @@ export class DefaultNodeInfo {
     writer.uint32(58);
     writer.string(message.moniker);
 
-    const other = message.other;
-    if (other !== null) {
+    const other_ = message.other;
+    if (other_ !== null) {
       writer.uint32(66);
       writer.fork();
-      DefaultNodeInfoOther.encode(other, writer);
+      DefaultNodeInfoOther.encode(other_, writer);
       writer.ldelim();
     }
   }

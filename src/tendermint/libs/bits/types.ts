@@ -5,11 +5,11 @@ export class BitArray {
     writer.uint32(8);
     writer.int64(message.bits);
 
-    const elems = message.elems;
-    if (elems.length !== 0) {
-      for (let i = 0; i < elems.length; ++i) {
+    const elems_ = message.elems;
+    if (elems_.length !== 0) {
+      for (let i = 0; i < elems_.length; ++i) {
         writer.uint32(16);
-        writer.uint64(elems[i]);
+        writer.uint64(elems_[i]);
       }
     }
   }

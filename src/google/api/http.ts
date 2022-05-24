@@ -2,11 +2,11 @@ import { Writer, Reader, Protobuf } from "as-proto";
 
 export class Http {
   static encode(message: Http, writer: Writer): void {
-    const rules = message.rules;
-    for (let i = 0; i < rules.length; ++i) {
+    const rules_ = message.rules;
+    for (let i = 0; i < rules_.length; ++i) {
       writer.uint32(10);
       writer.fork();
-      HttpRule.encode(rules[i], writer);
+      HttpRule.encode(rules_[i], writer);
       writer.ldelim();
     }
 
@@ -71,11 +71,11 @@ export class HttpRule {
     writer.uint32(50);
     writer.string(message.patch);
 
-    const custom = message.custom;
-    if (custom !== null) {
+    const custom_ = message.custom;
+    if (custom_ !== null) {
       writer.uint32(66);
       writer.fork();
-      CustomHttpPattern.encode(custom, writer);
+      CustomHttpPattern.encode(custom_, writer);
       writer.ldelim();
     }
 
@@ -85,11 +85,11 @@ export class HttpRule {
     writer.uint32(98);
     writer.string(message.response_body);
 
-    const additional_bindings = message.additional_bindings;
-    for (let i = 0; i < additional_bindings.length; ++i) {
+    const additional_bindings_ = message.additional_bindings;
+    for (let i = 0; i < additional_bindings_.length; ++i) {
       writer.uint32(90);
       writer.fork();
-      HttpRule.encode(additional_bindings[i], writer);
+      HttpRule.encode(additional_bindings_[i], writer);
       writer.ldelim();
     }
   }

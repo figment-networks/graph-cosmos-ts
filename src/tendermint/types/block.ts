@@ -4,35 +4,35 @@ import { EvidenceList } from "./evidence";
 
 export class Block {
   static encode(message: Block, writer: Writer): void {
-    const header = message.header;
-    if (header !== null) {
+    const header_ = message.header;
+    if (header_ !== null) {
       writer.uint32(10);
       writer.fork();
-      Header.encode(header, writer);
+      Header.encode(header_, writer);
       writer.ldelim();
     }
 
-    const data = message.data;
-    if (data !== null) {
+    const data_ = message.data;
+    if (data_ !== null) {
       writer.uint32(18);
       writer.fork();
-      Data.encode(data, writer);
+      Data.encode(data_, writer);
       writer.ldelim();
     }
 
-    const evidence = message.evidence;
-    if (evidence !== null) {
+    const evidence_ = message.evidence;
+    if (evidence_ !== null) {
       writer.uint32(26);
       writer.fork();
-      EvidenceList.encode(evidence, writer);
+      EvidenceList.encode(evidence_, writer);
       writer.ldelim();
     }
 
-    const last_commit = message.last_commit;
-    if (last_commit !== null) {
+    const last_commit_ = message.last_commit;
+    if (last_commit_ !== null) {
       writer.uint32(34);
       writer.fork();
-      Commit.encode(last_commit, writer);
+      Commit.encode(last_commit_, writer);
       writer.ldelim();
     }
   }

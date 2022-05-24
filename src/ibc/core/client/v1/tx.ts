@@ -3,19 +3,19 @@ import { google } from "../../../../google";
 
 export class MsgCreateClient {
   static encode(message: MsgCreateClient, writer: Writer): void {
-    const client_state = message.client_state;
-    if (client_state !== null) {
+    const client_state_ = message.client_state;
+    if (client_state_ !== null) {
       writer.uint32(10);
       writer.fork();
-      google.protobuf.Any.encode(client_state, writer);
+      google.protobuf.Any.encode(client_state_, writer);
       writer.ldelim();
     }
 
-    const consensus_state = message.consensus_state;
-    if (consensus_state !== null) {
+    const consensus_state_ = message.consensus_state;
+    if (consensus_state_ !== null) {
       writer.uint32(18);
       writer.fork();
-      google.protobuf.Any.encode(consensus_state, writer);
+      google.protobuf.Any.encode(consensus_state_, writer);
       writer.ldelim();
     }
 
@@ -102,11 +102,11 @@ export class MsgUpdateClient {
     writer.uint32(10);
     writer.string(message.client_id);
 
-    const header = message.header;
-    if (header !== null) {
+    const header_ = message.header;
+    if (header_ !== null) {
       writer.uint32(18);
       writer.fork();
-      google.protobuf.Any.encode(header, writer);
+      google.protobuf.Any.encode(header_, writer);
       writer.ldelim();
     }
 
@@ -189,19 +189,19 @@ export class MsgUpgradeClient {
     writer.uint32(10);
     writer.string(message.client_id);
 
-    const client_state = message.client_state;
-    if (client_state !== null) {
+    const client_state_ = message.client_state;
+    if (client_state_ !== null) {
       writer.uint32(18);
       writer.fork();
-      google.protobuf.Any.encode(client_state, writer);
+      google.protobuf.Any.encode(client_state_, writer);
       writer.ldelim();
     }
 
-    const consensus_state = message.consensus_state;
-    if (consensus_state !== null) {
+    const consensus_state_ = message.consensus_state;
+    if (consensus_state_ !== null) {
       writer.uint32(26);
       writer.fork();
-      google.protobuf.Any.encode(consensus_state, writer);
+      google.protobuf.Any.encode(consensus_state_, writer);
       writer.ldelim();
     }
 
@@ -315,11 +315,11 @@ export class MsgSubmitMisbehaviour {
     writer.uint32(10);
     writer.string(message.client_id);
 
-    const misbehaviour = message.misbehaviour;
-    if (misbehaviour !== null) {
+    const misbehaviour_ = message.misbehaviour;
+    if (misbehaviour_ !== null) {
       writer.uint32(18);
       writer.fork();
-      google.protobuf.Any.encode(misbehaviour, writer);
+      google.protobuf.Any.encode(misbehaviour_, writer);
       writer.ldelim();
     }
 

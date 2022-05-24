@@ -1,1 +1,1 @@
-export * from "./bits";
+export { bits } from "./bits";
