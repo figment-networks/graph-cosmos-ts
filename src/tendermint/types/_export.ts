@@ -4,8 +4,6 @@
 // 	 protoc        v3.20.1
 // source: tendermint/types/_export.ts
 
-export * from "./block";
-export * from "./evidence";
-export * from "./params";
 export * from "./types";
+export * from "./params";
 export * from "./validator";

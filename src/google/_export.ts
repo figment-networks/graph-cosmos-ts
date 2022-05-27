@@ -4,5 +4,4 @@
 // 	 protoc        v3.20.1
 // source: google/_export.ts
 
-export { api } from "./api";
 export { protobuf } from "./protobuf";

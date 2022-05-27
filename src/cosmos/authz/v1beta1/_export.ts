@@ -5,3 +5,4 @@
 // source: cosmos/authz/v1beta1/_export.ts
 
 export * from "./tx";
+export * from "./authz";

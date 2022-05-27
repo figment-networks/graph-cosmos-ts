@@ -14,5 +14,5 @@ export { feegrant } from "./feegrant";
 export { gov } from "./gov";
 export { slashing } from "./slashing";
 export { staking } from "./staking";
-export { upgrade } from "./upgrade";
 export { vesting } from "./vesting";
+export { upgrade } from "./upgrade";

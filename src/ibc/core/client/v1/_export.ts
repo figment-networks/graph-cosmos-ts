@@ -4,5 +4,5 @@
 // 	 protoc        v3.20.1
 // source: ibc/core/client/v1/_export.ts
 
-export * from "./client";
 export * from "./tx";
+export * from "./client";

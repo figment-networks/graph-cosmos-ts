@@ -4,5 +4,5 @@
 // 	 protoc        v3.20.1
 // source: cosmos/gov/v1beta1/_export.ts
 
-export * from "./gov";
 export * from "./tx";
+export * from "./gov";

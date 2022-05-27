@@ -4,5 +4,5 @@
 // 	 protoc        v3.20.1
 // source: ibc/core/channel/v1/_export.ts
 
-export * from "./channel";
 export * from "./tx";
+export * from "./channel";

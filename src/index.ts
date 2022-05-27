@@ -5,7 +5,7 @@
 // source: ./index.ts
 
 export { cosmos } from "./cosmos";
-export { ics23 } from "./confio";
+export { ibc } from "./ibc";
 export { google } from "./google";
 export { tendermint } from "./tendermint";
-export { ibc } from "./ibc";
+export { ics23 } from "./confio";

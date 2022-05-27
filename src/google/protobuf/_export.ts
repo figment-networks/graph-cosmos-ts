@@ -5,5 +5,5 @@
 // source: google/protobuf/_export.ts
 
 export * from "./any";
-export * from "./duration";
 export * from "./timestamp";
+export * from "./duration";

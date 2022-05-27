@@ -4,5 +4,5 @@
 // 	 protoc        v3.20.1
 // source: cosmos/staking/v1beta1/_export.ts
 
-export * from "./staking";
 export * from "./tx";
+export * from "./staking";

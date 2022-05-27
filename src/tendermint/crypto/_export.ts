@@ -4,5 +4,5 @@
 // 	 protoc        v3.20.1
 // source: tendermint/crypto/_export.ts
 
-export * from "./keys";
 export * from "./proof";
+export * from "./keys";
